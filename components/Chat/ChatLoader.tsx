@@ -3,6 +3,7 @@ import { FC } from "react";
 
 interface Props {}
 
+// 메시지 로딩 컴포넌트
 export const ChatLoader: FC<Props> = () => {
   return (
     <div className="flex flex-col flex-start">
@@ -10,7 +11,7 @@ export const ChatLoader: FC<Props> = () => {
         className={`flex items-center bg-neutral-200 text-neutral-900 rounded-2xl px-4 py-2 w-fit`}
         style={{ overflowWrap: "anywhere" }}
       >
-        <IconDots className="animate-pulse" />
+        <IconDots className="animate-spin" />
       </div>
     </div>
   );

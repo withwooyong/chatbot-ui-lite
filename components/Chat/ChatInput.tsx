@@ -1,5 +1,5 @@
-import { Message } from "@/types";
-import { IconArrowUp } from "@tabler/icons-react";
+import { COMMON_MESSAGE, Message, ROLE_ENUM } from "@/types";
+import { IconArrowUp, IconSend } from "@tabler/icons-react";
 import { FC, KeyboardEvent, useEffect, useRef, useState } from "react";
 
 interface Props {
@@ -14,19 +14,18 @@ export const ChatInput: FC<Props> = ({ onSend }) => {
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     if (value.length > 4000) {
-      alert("Message limit is 4000 characters");
+      alert(COMMON_MESSAGE.MESSAGE_LIMIT);
       return;
     }
-
     setContent(value);
   };
 
   const handleSend = () => {
     if (!content) {
-      alert("Please enter a message");
+      alert(COMMON_MESSAGE.EMPTY_MESSAGE);
       return;
     }
-    onSend({ role: "user", content });
+    onSend({ role: ROLE_ENUM.USER, content });
     setContent("");
   };
 
@@ -58,7 +57,7 @@ export const ChatInput: FC<Props> = ({ onSend }) => {
       />
 
       <button onClick={() => handleSend()}>
-        <IconArrowUp className="absolute right-2 bottom-3 h-8 w-8 hover:cursor-pointer rounded-full p-1 bg-blue-500 text-white hover:opacity-80" />
+        <IconSend className="absolute right-2 bottom-3 h-8 w-8 hover:cursor-pointer rounded-full p-1 bg-blue-500 text-white hover:opacity-80" />
       </button>
     </div>
   );
