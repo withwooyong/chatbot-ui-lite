@@ -104,7 +104,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>타이틀</title>
+        <title>Ted 췟</title>
         <meta
           name="description"
           content="A simple chatbot starter kit for OpenAI's chat model using Next.js, TypeScript, and Tailwind CSS."
